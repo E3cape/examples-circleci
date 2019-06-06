@@ -8,6 +8,8 @@ jobs:
     steps:
       - checkout
       - run: echo "First parallel job"
+      - run: echo ${CIRCLE_BRANCH}
+      - run: echo $CIRCLE_BRANCH
       - run: echo $FIRSTVARIABLE
       - run: $SECONDVARIABLE
   test:
