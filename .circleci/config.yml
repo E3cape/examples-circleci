@@ -46,7 +46,7 @@ jobs:
       - image: circleci/node:4.8.2-jessie
     steps:
       - restore_cache:
-          key: cache-{{ epoch }}
+          key: cache
       - run: cat text.txt
       
       
