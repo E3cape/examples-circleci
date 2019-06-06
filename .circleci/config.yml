@@ -25,8 +25,15 @@ jobs:
     steps:
       - checkout
       - run: echo "Third job another workflow"
-
-
+  fourth:
+    docker:
+      - image: circleci/node:4.8.2-jessie
+    steps:
+      - checkout
+      - run: ps aux > text.txt
+      - run: cat text.txt
+      
+      
 workflows:
   version: 2
   first_workflow:
@@ -36,3 +43,6 @@ workflows:
   "Second workflow":
     jobs:
       - third
+      - fourth:
+        - requires:
+          - third
