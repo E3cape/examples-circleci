@@ -1,0 +1,33 @@
+#parallel jobs and one additional job for second build
+
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.4.1
+    steps:
+      - checkout
+      - run: echo "First parallel job"
+  test:
+    docker:
+      - image: circleci/ruby:2.4.1
+    steps:
+      - checkout
+      - run: echo "Second parallel job"
+  third:
+    docker:
+      - image: circleci/ruby:2.4.1
+    steps:
+      - checkout
+      - run: echo "Third job another workflow"
+
+
+workflows:
+  version: 2
+  first_workflow:
+    jobs:
+      - build
+      - test
+  "Second workflow":
+    jobs:
+      - third
