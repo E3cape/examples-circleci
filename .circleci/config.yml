@@ -35,9 +35,9 @@ jobs:
       - checkout
       - run: echo "Third job another workflow"
       - run: pwd
-      - run: ps aux > text.txt
+      - run: date > text.txt
       - save_cache:
-          key: cache-{{ epoch }}
+          key: cache-one
           paths:
             - ~/project
           
@@ -46,7 +46,7 @@ jobs:
       - image: circleci/ruby:2.4.1
     steps:
       - restore_cache:
-          key: cache-{{ cache }}
+          key: cache-one
       - run: cat text.txt
       
       
