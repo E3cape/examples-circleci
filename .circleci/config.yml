@@ -12,6 +12,7 @@ jobs:
       - run: echo $CIRCLE_BRANCH
       - run: echo $FIRSTVARIABLE
       - run: $SECONDVARIABLE
+      - run: $THIRDVARIABLE
   test:
     docker:
       - image: circleci/ruby:2.4.1
