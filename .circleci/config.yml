@@ -25,11 +25,16 @@ jobs:
     steps:
       - checkout
       - run: echo "Third job another workflow"
+      - persist_to_workspace:
+          root: workspace_one
+          
   fourth:
     docker:
       - image: circleci/node:4.8.2-jessie
     steps:
       - checkout
+      - attach_workspace:
+          at: workspace_one
       - run: ps aux > text.txt
       - run: cat text.txt
       
