@@ -35,6 +35,7 @@ jobs:
       - checkout
       - run: echo "Third job another workflow"
       - run: pwd
+      - run: ps aux > text.txt
       - save_cache:
           key: cache-{{ epoch }}
           paths:
@@ -46,7 +47,6 @@ jobs:
     steps:
       - restore_cache:
           key: cache-{{ epoch }}
-      - run: ps aux > text.txt
       - run: cat text.txt
       
       
