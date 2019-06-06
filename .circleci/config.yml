@@ -43,7 +43,7 @@ jobs:
           
   fourth:
     docker:
-      - image: circleci/node:4.8.2-jessie
+      - image: circleci/ruby:2.4.1
     steps:
       - restore_cache:
           key: cache
