@@ -36,9 +36,9 @@ jobs:
       - run: echo "Third job another workflow"
       - run: pwd
       - save_cache:
-          key: cache_one
+          key: cache-{{ epoch }}
           paths:
-            - ~/
+            - ~/project
           
   fourth:
     docker:
@@ -46,7 +46,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: cache_one
+          key: cache-{{ epoch }}
       - run: ps aux > text.txt
       - run: cat text.txt
       
