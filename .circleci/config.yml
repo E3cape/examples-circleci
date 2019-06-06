@@ -44,5 +44,5 @@ workflows:
     jobs:
       - third
       - fourth:
-        - requires:
-          - third
+          requires:
+            - third
