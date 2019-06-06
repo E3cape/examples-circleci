@@ -46,7 +46,7 @@ jobs:
       - image: circleci/ruby:2.4.1
     steps:
       - restore_cache:
-          key: cache
+          key: cache-{{ cache }}
       - run: cat text.txt
       
       
