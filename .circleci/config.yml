@@ -8,6 +8,8 @@ jobs:
     steps:
       - checkout
       - run: echo "First parallel job"
+      - run: echo $FIRSTVARIABLE
+      - run: $SECONDVARIABLE
   test:
     docker:
       - image: circleci/ruby:2.4.1
