@@ -13,6 +13,15 @@ jobs:
       - run: echo $FIRSTVARIABLE
       - run: $SECONDVARIABLE
       - run: $THIRDVARIABLE
+      - run: 
+          command: |-
+            echo "TRIGGERER: ${CIRCLE_USERNAME}"
+            echo "BUILD_NUMBER: ${CIRCLE_BUILD_NUM}"
+            echo "BUILD_URL: ${CIRCLE_BUILD_URL}"
+            echo "BRANCH: ${CIRCLE_BRANCH}"
+            echo "RUNNING JOB: ${CIRCLE_JOB}"
+            echo "JOB PARALLELISM: ${CIRCLE_NODE_TOTAL}"
+            echo "CIRCLE_REPOSITORY_URL: ${CIRCLE_REPOSITORY_URL}"
   test:
     docker:
       - image: circleci/ruby:2.4.1
@@ -25,6 +34,7 @@ jobs:
     steps:
       - checkout
       - run: echo "Third job another workflow"
+      - run: mkdir workspace_one
       - persist_to_workspace:
           root: workspace_one
           
